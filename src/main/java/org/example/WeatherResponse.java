@@ -1,6 +1,8 @@
 package org.example;
 
+//class that handles the JSON headers in order to extract the info
 public class WeatherResponse {
+    //since these are the only two headers we need
     private Location location;
     private Current current;
 
@@ -20,6 +22,7 @@ public class WeatherResponse {
         this.location = location;
     }
 
+    //inner classes for the headers so we can get the nested info from them
     public static class Location{
         private String name;
 
@@ -31,6 +34,7 @@ public class WeatherResponse {
             this.name = name;
         }
     }
+    //current has  another conditino nested so another inner class
     public static class Current{
         private double temp_f;
         private Condition condition;

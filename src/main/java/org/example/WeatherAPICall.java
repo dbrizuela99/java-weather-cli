@@ -29,7 +29,4 @@ public class WeatherAPICall {
         System.out.println("The weather in: " + realWeather.getLocation().getName() + " is " + realWeather.getCurrent().getTemp_f() + " it is also " + realWeather.getCurrent().getCondition().getText());
 
     }
-    //Dummy run to test the weather
-
-
 }
