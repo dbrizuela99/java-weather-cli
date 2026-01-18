@@ -14,14 +14,32 @@ public class WeatherAPICall {
     public static void main(String[] args) throws  Exception {
 
         //build the request with all headers
+        String location = "Carrollton";
         HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(new URI("http://api.weatherapi.com/v1//current.json"))
+                .uri(new URI("http://api.weatherapi.com/v1/current.json" + location))
                 .GET()
                 .build();
         //initialize client
         HttpClient httpClient = HttpClient.newHttpClient();
         //store the response you send to the client
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+        //check if there is any errors in the API call
+        switch (response.statusCode()){
+            case 200:
+                break;
+            case 401:
+                System.out.println("Error with internal key...");
+                return;
+            case 400:
+                System.out.println("Error with location please try again...");
+                return;
+            case 403:
+                System.out.println("Error exceeded API calls");
+                return;
+            default:
+                System.out.println("Unknown error HTTP status: " + response.statusCode());
+        }
 
         //create Gson object to read json
         Gson gson = new Gson();

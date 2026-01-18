@@ -34,7 +34,7 @@ public class WeatherResponse {
             this.name = name;
         }
     }
-    //current has  another conditino nested so another inner class
+    //current has  another condition nested so another inner class
     public static class Current{
         private double temp_f;
         private Condition condition;
