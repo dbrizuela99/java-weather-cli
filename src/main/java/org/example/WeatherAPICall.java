@@ -12,7 +12,7 @@ import java.util.List;
 
 public class WeatherAPICall {
 
-    private final String key = "";
+    private final String key = "9217383922534988a22222822261501";
     private HttpRequest httpRequest;
     private HttpClient httpClient;
 

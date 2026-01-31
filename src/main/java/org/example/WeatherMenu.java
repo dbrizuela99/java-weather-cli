@@ -18,7 +18,13 @@ public class WeatherMenu {
                 case "1":
                     System.out.println("Enter the location you want to check the weather for (eg. Dallas or 75220)");
                     location = scanner.next();
-                    apiCall.getCurrentWeather(location);
+                    //try catch blocks for the actual api call
+                    try {
+                        apiCall.getCurrentWeather(location);
+                    }
+                    catch (IllegalArgumentException | IllegalStateException e){
+                        System.out.println("Error: " + e.getMessage() + " please try again....");
+                    }
                     System.out.println();
                     break;
                 case "2":
@@ -26,7 +32,14 @@ public class WeatherMenu {
                     location = scanner.next();
                     System.out.println("Enter the amount of days you want to see the forecast for: ");
                     numberOfDays = scanner.next();
-                    apiCall.getForecast(location, numberOfDays);
+
+                    //try catch blocks for the actual api call
+                    try {
+                        apiCall.getForecast(location, numberOfDays);
+                    }
+                    catch (IllegalArgumentException | IllegalStateException e){
+                        System.out.println("Error: " + e.getMessage() + " please try again....");
+                    }
                     System.out.println();
                     break;
                 case "3":
